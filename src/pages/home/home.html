@@ -10,15 +10,11 @@
 <ion-content padding>
   <h3>Adidas Hackaton App</h3>
 
-
 <ion-content padding>
 <img src="assets/imgs/camera_icon.svg" class="camera_icon" (click)="takePicture()">
 <!-- <button ion-button color="dark" (click)="takePicture()">Take Photo</button> -->
 <img [src]="base64Image" *ngIf="base64Image" />
 </ion-content>
-
-
-
 
   <button ion-button secondary menuToggle>Toggle Menu</button>
 </ion-content>
