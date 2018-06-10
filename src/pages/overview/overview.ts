@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { SinglePage } from '../single/single';
+import * as $ from 'jquery'
 
 @Component({
   selector: 'page-overview',
@@ -22,6 +23,15 @@ export class OverviewPage {
     ];
   }
 
+  posts;
+
+
+  success(data) {
+    // do something with data, which is an object
+  }
+  data(data) {
+    // do something with data, which is an object
+  }
   goToItem(event, item) {
     // That's right, we're pushing to ourselves!
     this.navCtrl.push(SinglePage, {

@@ -110,8 +110,22 @@ export class CustomizePage {
 
 	}
 
+	makeRequest(data) {
+		console.log('Making request');
+		var url = "http://52.211.71.172:5000/transform";
+		$.ajax({
+			url: url,
+			data: data,
+			type: "POST",
+			success: function(data) {
+				alert(data);
+			}
+		});
+	}
+
 	saveCanvasImage() {
 
+		//Base64 of piece of clothing
 		var dataUrl = this.canvasElement.toDataURL();
 		var data = dataUrl.split(',')[1];
 
@@ -119,7 +133,8 @@ export class CustomizePage {
 		console.log('input_image:');
 		console.log(inputImage);
 
-
+		data = { 'input_user': inputImage, 'input_object': data };
+		this.makeRequest(data);
 
 		// let name = new Date().getTime() + '.png';
 		// let path = this.file.dataDirectory;

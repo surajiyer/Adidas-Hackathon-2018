@@ -19,7 +19,7 @@ import { SplashPage } from '../pages/splash/splash';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = SplashPage;
+  rootPage: any = OverviewPage;
 
   pages: Array<{ title: string, component: any }>;
 
