@@ -1,5 +1,40 @@
 page-home {
 
+
+}
+
+
+.column {
+  text-align: center;
+}
+.dot {
+  background-color: red; /* for visualization purposes */
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.dot.right {
+    margin-right: 20px;
+}
+
+.dot.left {
+    margin-left: 20px;
+}
+
+.row {
+    display: flex;
+}
+
+.column {
+    flex: 50%;
+}
+
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 @font-face {
@@ -13,6 +48,8 @@ page-home {
 	width: 100%;
 	margin-top: 15px;
 }
+
+
 
 .toolbar-background {
     background: #dd4a66;

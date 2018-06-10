@@ -116,6 +116,7 @@ export class CustomizePage {
 		$.ajax({
 			url: url,
 			data: data,
+			dataType: "json",
 			type: "POST",
 			success: function(data) {
 				alert(data);
@@ -128,33 +129,58 @@ export class CustomizePage {
 		//Base64 of piece of clothing
 		var dataUrl = this.canvasElement.toDataURL();
 		var data = dataUrl.split(',')[1];
+		console.log('input_object:');
+		console.log(data);
 
-		var inputImage = this.getInputImage();
-		console.log('input_image:');
-		console.log(inputImage);
+		var parent = this;
 
-		data = { 'input_user': inputImage, 'input_object': data };
-		this.makeRequest(data);
+		if (this.takenPicture != '') {
+			this.toDataURL(this.takenPicture, function(dataUrl) {
+				console.log('RESULT:', dataUrl);
 
-		// let name = new Date().getTime() + '.png';
-		// let path = this.file.dataDirectory;
-		// let options: IWriteOptions = { replace: true };
+				var data_user = dataUrl.split(',')[1];
+				data = { input_user: data_user, input_object: data };
+				console.log(data);
+				parent.makeRequest(data);
+			})
+		}
+		else {
+			//For now we only support 1 image form gallelry
+			this.toDataURL(this.imagesFromGallery[0], function(dataUrl) {
+				console.log('RESULT:', dataUrl);
 
-		// var data = dataUrl.split(',')[1];
+				var data_user = dataUrl.split(',')[1];
+				data = { input_user: data_user, input_object: data };
+				console.log(data);
+				parent.makeRequest(data);
+			})
+		}
 
+
+		// var inputImage = this.getInputImage();
+		// var data_user = inputImage.split(',')[1];
+
+		// console.log('input_image:');
+		// console.log(data_user);
+
+
+		// data = { input_user: data_user, input_object: data };
+		// console.log('final data:');
 		// console.log(data);
-		// console.log(this.allPositionsX);
 
-		// this.upscaleImage();
 
-		// let blob = this.b64toBlob(data, 'image/png');
 
-		// this.file.writeFile(path, name, blob, options).then(res => {
-		// 	this.storeImage(name);
-		// }, err => {
-		// 	console.log('error: ', err);
-		// });
 	}
+
+	// prepareUserInput() {
+
+	// 	data_user = 
+	// 	data = 
+
+
+	// 	data = { input_user: data_user, input_object: data };
+	// 	this.makeRequest(data);
+	// }
 
 
 	// https://forum.ionicframework.com/t/save-base64-encoded-image-to-specific-filepath/96180/3
@@ -228,6 +254,20 @@ export class CustomizePage {
 			})
 	}
 
+	toDataURL(url, callback) {
+		var xhr = new XMLHttpRequest();
+		xhr.onload = function() {
+			var reader = new FileReader();
+			reader.onloadend = function() {
+				callback(reader.result);
+			}
+			reader.readAsDataURL(xhr.response);
+		};
+		xhr.open('GET', url);
+		xhr.responseType = 'blob';
+		xhr.send();
+	}
+
 	//Truncate images so we can laod new ones
 	resetImages() {
 		this.takenPicture = '';
@@ -236,14 +276,22 @@ export class CustomizePage {
 
 	//Choses between image from camera or image from gallery (XOR)
 	getInputImage() {
+		var result = "";
+
 		if (this.takenPicture != '') {
-			return this.takenPicture;
+			this.toDataURL(this.takenPicture, function(dataUrl) {
+				console.log('RESULT:', dataUrl);
+				result = dataUrl;
+			})
 		}
 		else {
 			//For now we only support 1 image form gallelry
-			return this.imagesFromGallery[0];
+			this.toDataURL(this.imagesFromGallery[0], function(dataUrl) {
+				console.log('RESULT:', dataUrl);
+				result = dataUrl;
+			})
 		}
-
+		return result;
 	}
 
 	public getImagesFromGallery() {

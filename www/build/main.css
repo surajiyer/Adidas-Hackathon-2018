@@ -25722,6 +25722,47 @@ ion-navbar.toolbar {
   min-height: 60px;
 }
 
+.column {
+  text-align: center;
+}
+
+.dot {
+  background-color: red;
+  /* for visualization purposes */
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.dot.right {
+  margin-right: 20px;
+}
+
+.dot.left {
+  margin-left: 20px;
+}
+
+.row {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.column {
+  -webkit-box-flex: 50%;
+  -webkit-flex: 50%;
+  -ms-flex: 50%;
+  flex: 50%;
+}
+
+.dot {
+  height: 100px;
+  width: 100px;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+  display: inline-block;
+}
+
 @font-face {
   font-family: 'adidas';
   src: url(../assets/fonts/adidas.ttf);
@@ -25850,6 +25891,14 @@ page-home .color-block {
 page-home #preloader {
   opacity: 0;
   display: none;
+}
+
+page-home .dot {
+  height: 50px;
+  width: 50px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
 }
 
 @font-face {

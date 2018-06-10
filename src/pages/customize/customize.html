@@ -11,7 +11,7 @@
   <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)" width="1200" height="900"></canvas>
   <img [src]="takenPicture" *ngIf="takenPicture" id="takenPicture" />
  <div *ngFor="let imgInstance of imagesFromGallery">
-  <img src="{{imgInstance}}"/>
+  <img src="{{imgInstance}}" id="imageFromGallery"/>
   {{imgInstance}}
  </div>
   <button ion-button full (click)="takePicture()">Make photo</button>
@@ -20,4 +20,16 @@
     Trash
   </button>
   <button ion-button full (click)="saveCanvasImage()">Save Image</button>
+
+
+<div class="row">
+  <div class="column"><div class="dot left">Test</div></div>
+  <div class="column"><div class="dot right" left>Test</div></div>
+</div>
+<div class="row">
+  <div class="column"><div class="dot left">Test</div></div>
+  <div class="column"><div class="dot right">Test</div></div>
+</div>
+  
+
 </ion-content>
