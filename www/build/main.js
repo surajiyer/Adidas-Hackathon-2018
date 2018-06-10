@@ -542,11 +542,11 @@ var OverviewPage = /** @class */ (function () {
     function OverviewPage(navCtrl) {
         this.navCtrl = navCtrl;
         this.items = [
-            { id: 0, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" },
-            { id: 1, title: "Ultraboost shoes", price: 60, discounted: 50, image: "/assets/imgs/placeholder-tshirt.png" },
-            { id: 2, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" },
-            { id: 3, title: "Amazonian greens", price: 60, discounted: 50, image: "/assets/imgs/placeholder-tshirt.png" },
-            { id: 4, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" }
+            { id: 0, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" },
+            { id: 1, title: "Ultraboost shoes", price: 60, discounted: 50, image: "assets/imgs/placeholder-tshirt.png" },
+            { id: 2, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" },
+            { id: 3, title: "Amazonian greens", price: 60, discounted: 50, image: "assets/imgs/placeholder-tshirt.png" },
+            { id: 4, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" }
         ];
     }
     OverviewPage.prototype.goToItem = function (event, item) {
@@ -557,7 +557,7 @@ var OverviewPage = /** @class */ (function () {
     };
     OverviewPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-overview',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/overview/overview.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="item" *ngFor="let item of items" (click)="goToItem($event, item)">\n    <div class="image-container">\n      <img src="{{ item.image }}" alt="" />\n    </div>\n    <div class="info">\n      <span class="name">{{ item.title }}</span>\n      <span class="price">\n        {{ item.discounted | currency }}<br />\n        <span class="discount">{{ item.price | currency }}</span>\n      </span>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/overview/overview.html"*/
+            selector: 'page-overview',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/overview/overview.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="item" *ngFor="let item of items" (click)="goToItem($event, item)">\n    <div class="image-container">\n      <img src="{{ item.image }}" alt="" />\n    </div>\n    <div class="info">\n      <span class="name">{{ item.title }}</span>\n      <span class="price">\n        {{ item.discounted | currency }}<br />\n        <span class="discount">{{ item.price | currency }}</span>\n      </span>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/overview/overview.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], OverviewPage);

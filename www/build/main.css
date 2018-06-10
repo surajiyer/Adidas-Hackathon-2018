@@ -25689,20 +25689,24 @@ ion-navbar.toolbar {
   font-weight: 200;
 }
 
-.ion-page.show-page {
-  background-image: url(/assets/imgs/bg.png) !important;
+.content {
+  background-image: url(../assets/imgs/bg.png) !important;
   background-repeat: no-repeat;
   background-position: 0 -150px;
   width: 100%;
 }
 
 .toolbar-background {
-  background: none !important;
   border-width: 0 !important;
 }
 
 .content-ios {
   background-color: transparent;
+}
+
+.content {
+  color: #000;
+  background-color: #000;
 }
 
 .toolbar-title {

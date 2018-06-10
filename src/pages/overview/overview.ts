@@ -13,11 +13,11 @@ export class OverviewPage {
 
   constructor(public navCtrl: NavController) {
     this.items = [
-      { id: 0, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" },
-      { id: 1, title: "Ultraboost shoes", price: 60, discounted: 50, image: "/assets/imgs/placeholder-tshirt.png" },
-      { id: 2, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" },
-      { id: 3, title: "Amazonian greens", price: 60, discounted: 50, image: "/assets/imgs/placeholder-tshirt.png" },
-      { id: 4, title: "Ultraboost shoes", price: 200, discounted: 150, image: "/assets/imgs/placeholder.png" }
+      { id: 0, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" },
+      { id: 1, title: "Ultraboost shoes", price: 60, discounted: 50, image: "assets/imgs/placeholder-tshirt.png" },
+      { id: 2, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" },
+      { id: 3, title: "Amazonian greens", price: 60, discounted: 50, image: "assets/imgs/placeholder-tshirt.png" },
+      { id: 4, title: "Ultraboost shoes", price: 200, discounted: 150, image: "assets/imgs/placeholder.png" }
     ];
   }
 
