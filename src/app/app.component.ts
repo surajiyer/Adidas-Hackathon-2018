@@ -8,7 +8,8 @@ import { ListPage } from '../pages/list/list';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { InputSelectorPage } from '../pages/inputselector/inputselector';
 import { DrawingPage } from '../pages/drawing/drawing';
-
+import { SinglePage } from '../pages/single/single';
+import { OverviewPage } from '../pages/overview/overview';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { DrawingPage } from '../pages/drawing/drawing';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = InputSelectorPage;
+  rootPage: any = OverviewPage;
 
   pages: Array<{ title: string, component: any }>;
 
@@ -27,10 +28,12 @@ export class MyApp {
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
+      { title: 'Overview', component: OverviewPage },
       { title: 'List', component: ListPage },
       { title: 'Gallery', component: GalleryPage },
       { title: 'InputSelector', component: InputSelectorPage },
-      { title: 'Drawing', component: DrawingPage }
+      { title: 'Drawing', component: DrawingPage },
+      { title: 'Single', component: SinglePage }
     ];
   }
 

@@ -25679,66 +25679,139 @@ ion-navbar.toolbar {
 }
 
 @font-face {
+  font-family: 'Adidas';
+  src: url(../assets/fonts/adidas.ttf);
+}
+
+@font-face {
   font-family: 'Manoyri';
   src: url(../assets/fonts/Manoyri-Regular.otf);
   font-weight: 200;
 }
 
-h3 {
-  font-family: "Manoyri";
-  font-size: 60px;
+.ion-page.show-page {
+  background-image: url(/assets/imgs/bg.png) !important;
+  background-repeat: no-repeat;
+  background-position: 0 -150px;
+  width: 100%;
 }
 
-.button-inner {
-  font-size: 40px;
-  font-family: 'Lato';
+.toolbar-background {
+  background: none !important;
+  border-width: 0 !important;
 }
 
-.camera_icon {
-  width: 100px;
-  fill: #ff0000;
+.content-ios {
+  background-color: transparent;
 }
 
-.toolbar-background-md {
-  border-color: #e0e0e0;
-  background: #020202;
+.toolbar-title {
+  color: white;
+  font-family: 'adidas', Sans-serif !important;
 }
 
-.content-md {
-  color: #000;
-  background-color: #353535;
+.toolbar-ios {
+  min-height: 60px;
 }
 
-.content-md {
-  color: #000;
-  background-color: #353535;
+.toolbar {
+  min-height: 60px;
 }
 
-.content-md {
-  color: #f3f3f3;
-  background-color: #353535;
+@font-face {
+  font-family: 'adidas';
+  src: url(../assets/fonts/adidas.ttf);
+  font-weight: 200;
 }
 
-.toolbar-title-md {
-  padding: 0 12px;
-  font-size: 2rem;
-  font-weight: 500;
-  color: #d6d6d6;
+.preview {
+  width: 100%;
+  margin-top: 15px;
 }
 
-.item-md {
-  padding-left: 16px;
-  padding-right: 0;
+.toolbar-background {
+  background: #dd4a66;
+  color: crimson;
+  font-family: 'adidas';
+}
+
+.toolbar-title {
+  color: white;
+  font-family: 'adidas';
+}
+
+.header_title {
+  font-family: 'adidas';
+  font-size: 30px;
+  color: crimson !important;
+}
+
+.logo {
+  width: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 90%;
+  border-radius: 15px;
+}
+
+.item {
+  padding-bottom: 40px;
   position: relative;
-  font-size: 1.6rem;
-  font-weight: normal;
-  text-transform: none;
-  color: #000;
-  background-color: #222;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.info {
+  font-family: Adidas, Sans-serif;
+  padding-top: 15px;
+  color: #fff;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.info .name {
+  font-size: 27px;
+  line-height: 100%;
+  float: left;
+}
+
+.info .price {
+  font-size: 21px;
+  float: right;
+  text-align: right;
+  line-height: 100%;
+}
+
+.info .price .discount {
+  font-size: 18px;
+  text-decoration: line-through;
+  color: red;
+  text-shadow: 1px 1px 0 #860c28;
+}
+
+.item .customize {
+  font-family: Adidas, Sans-serif;
+  position: absolute;
+  top: 14px;
+  right: 5%;
+  margin-right: 13px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0 0 0 1px #bfbfbf;
+  box-shadow: 0 0 0 1px #bfbfbf;
 }
 
 page-home canvas {
@@ -25753,4 +25826,181 @@ page-home .color-block {
 page-home #preloader {
   opacity: 0;
   display: none;
+}
+
+@font-face {
+  font-family: 'adidas';
+  src: url(../assets/fonts/adidas.ttf);
+  font-weight: 200;
+}
+
+.preview {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.toolbar-background {
+  background: #dd4a66;
+  color: crimson;
+  font-family: 'adidas';
+}
+
+.toolbar-title {
+  color: white;
+  font-family: 'adidas';
+}
+
+.header_title {
+  font-family: 'adidas';
+  font-size: 30px;
+  color: crimson !important;
+}
+
+.logo {
+  width: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 90%;
+  border-radius: 15px;
+}
+
+.item {
+  padding-bottom: 40px;
+}
+
+.info {
+  font-family: Adidas, Sans-serif;
+  padding-top: 15px;
+  color: #fff;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.info .name {
+  font-size: 27px;
+  line-height: 100%;
+  float: left;
+  text-transform: uppercase;
+  width: 70%;
+}
+
+.info .price {
+  font-size: 21px;
+  float: right;
+  text-align: right;
+  line-height: 100%;
+}
+
+.info .price .discount {
+  font-size: 18px;
+  text-decoration: line-through;
+  color: red;
+  text-shadow: 1px 1px 0 #860c28;
+}
+
+@font-face {
+  font-family: 'adidas';
+  src: url(../assets/fonts/adidas.ttf);
+  font-weight: 200;
+}
+
+.preview {
+  width: 100%;
+  margin-top: 15px;
+}
+
+.toolbar-background {
+  background: #dd4a66;
+  color: crimson;
+  font-family: 'adidas';
+}
+
+.toolbar-title {
+  color: white;
+  font-family: 'adidas';
+}
+
+.header_title {
+  font-family: 'adidas';
+  font-size: 30px;
+  color: crimson !important;
+}
+
+.logo {
+  width: 100%;
+  z-index: 1;
+  display: none;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container {
+  text-align: center;
+}
+
+.image-container img {
+  max-width: 90%;
+  border-radius: 15px;
+}
+
+.item {
+  padding-bottom: 40px;
+  position: relative;
+}
+
+.info {
+  font-family: Adidas, Sans-serif;
+  padding-top: 15px;
+  color: #fff;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.info .name {
+  font-size: 27px;
+  line-height: 100%;
+  float: left;
+}
+
+.info .price {
+  font-size: 21px;
+  float: right;
+  text-align: right;
+  line-height: 100%;
+}
+
+.info .price .discount {
+  font-size: 18px;
+  text-decoration: line-through;
+  color: red;
+  text-shadow: 1px 1px 0 #860c28;
+}
+
+.item .customize {
+  font-family: Adidas, Sans-serif;
+  position: absolute;
+  top: 14px;
+  right: 5%;
+  margin-right: 13px;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px 15px;
+  border-radius: 10px;
+  text-decoration: none;
+  letter-spacing: 1px;
+  border: 2px solid #fff;
+  -webkit-box-shadow: 0 0 0 1px #bfbfbf;
+  box-shadow: 0 0 0 1px #bfbfbf;
 }

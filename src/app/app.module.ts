@@ -8,6 +8,9 @@ import { ListPage } from '../pages/list/list';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { InputSelectorPage } from '../pages/inputselector/inputselector';
 import { DrawingPage } from '../pages/drawing/drawing';
+import { SinglePage } from '../pages/single/single';
+import { CustomizePage } from '../pages/customize/customize'
+import { OverviewPage } from '../pages/overview/overview';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -23,7 +26,10 @@ import { IonicStorageModule } from '@ionic/storage';
     ListPage,
     GalleryPage,
     InputSelectorPage,
-    DrawingPage
+    DrawingPage,
+    SinglePage,
+    CustomizePage,
+    OverviewPage
   ],
   imports: [
     BrowserModule,
@@ -38,6 +44,9 @@ import { IonicStorageModule } from '@ionic/storage';
     GalleryPage,
     InputSelectorPage,
     DrawingPage,
+    CustomizePage,
+    SinglePage,
+    OverviewPage
   ],
   providers: [
     StatusBar,
