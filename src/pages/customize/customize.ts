@@ -111,6 +111,7 @@ export class CustomizePage {
 	}
 
 	makeRequest(data) {
+		var parent = this;
 		console.log('Making request');
 		var url = "http://52.211.71.172:5000/transform";
 		$.ajax({
@@ -118,19 +119,60 @@ export class CustomizePage {
 			data: data,
 			dataType: "json",
 			type: "POST",
-			success: function(data) {
-				alert(data);
-				console.log('response from server:');
-				console.log(data);
-				// let canvass = document.getElementById("imageCanvas");
-				// var ctx = canvass.getContext("2d");
-				let ctx = this.canvasElement.getContext('2d');
+			// success: function(data) {
+			// 	// alert(data);
+			// 	console.log('response from server:');
+			// 	console.log(data);
+			// 	// let canvass = document.getElementById("imageCanvas");
+			// 	// var ctx = canvass.getContext("2d");
+			// 	let ctx = this.canvasElement.getContext('2d');
 
-				var image = new Image();
-				image.onload = function() {
-					ctx.drawImage(image, 0, 0, 300, 400);
-				};
-				image.src = "data:image/png;base64," + data;
+			// 	var image = new Image();
+			// 	image.onload = function() {
+			// 		ctx.drawImage(image, 0, 0, 300, 400);
+			// 	};
+			// 	image.src = "data:image/png;base64," + data;
+			// },
+			// complete: function(xhr, status) {
+
+			// 	console.log(xhr.responseText);
+			// }
+			success: function(data, textStatus, request) {
+				// console.log('success');
+				// console.log('request special:');
+				// console.log(request.getResponseHeader('some_header'));
+				// console.log('data:');
+				// console.log(data['img']);
+
+				let takenPicture = document.getElementById("takenPicture");
+				// let ctx = parent.canvasElement.getContext('2d');
+				var good_data = data['img'];
+				console.log(good_data);
+
+				// var image = new Image();
+				// image.onload = function() {
+				// 	ctx.drawImage(image, 0, 0, 300, 400);
+				// };
+				// image.src = "data:image/png;base64," + good_data;
+
+				// string baseStr64 = "/9j/4AAQSkZJRgABAQE...";
+				takenPicture.setAttribute('src', "data:image/png;base64," + good_data);
+
+				// console.log('request:');
+				// console.log(request);
+				// console.log('textstatus:');
+				// console.log(textStatus);
+			},
+			error: function(request, textStatus, errorThrown) {
+				console.log('error');
+				console.log('request special:');
+				console.log(request.getResponseHeader('some_header'));
+				console.log('request:');
+				console.log(request);
+				console.log('textstatus:');
+				console.log(textStatus);
+				console.log('errorthrown:');
+				console.log(errorThrown);
 			}
 		});
 	}
@@ -253,8 +295,8 @@ export class CustomizePage {
 			sourceType: this.camera.PictureSourceType.CAMERA,
 			saveToPhotoAlbum: true,
 			correctOrientation: true,
-			targetWidth: 10,
-			targetHeight: 10,
+			targetWidth: 400,
+			targetHeight: 300,
 			destinationType: this.camera.DestinationType.DATA_URL,
 			mediaType: this.camera.MediaType.VIDEO
 		}
