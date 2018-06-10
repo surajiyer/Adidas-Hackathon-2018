@@ -6,14 +6,18 @@
     <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>
   </ion-navbar>
 </ion-header>
-
-<ion-content padding>
-  <div class="item">
-    <div class="image-container">
-      <img src="{{ item.image }}" alt="" />
-    </div>
-    <div class="image-container">
-      <img src="{{ item.image }}" alt="" />
-    </div>
-  </div>
+<ion-content overflow-scroll="true">
+  <img [src]="item.image" *ngIf="item.image" id="preloader" />
+  <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)" width="1200" height="900"></canvas>
+  <img [src]="takenPicture" *ngIf="takenPicture" id="takenPicture" />
+ <div *ngFor="let imgInstance of imagesFromGallery">
+  <img src="{{imgInstance}}"/>
+  {{imgInstance}}
+ </div>
+  <button ion-button full (click)="takePicture()">Make photo</button>
+  <button ion-button full (click)="getImagesFromGallery()">Choose from gallery</button>
+  <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">
+    Trash
+  </button>
+  <button ion-button full (click)="saveCanvasImage()">Save Image</button>
 </ion-content>

@@ -25818,6 +25818,26 @@ ion-navbar.toolbar {
   box-shadow: 0 0 0 1px #bfbfbf;
 }
 
+.button-md-danger {
+  color: #fff;
+  background-color: #E34865;
+}
+
+#imageCanvas {
+  width: 400px;
+  height: 300px;
+}
+
+canvas {
+  width: 400px;
+  height: 300px;
+}
+
+#takenPicture {
+  width: 400px;
+  height: 300px;
+}
+
 page-home canvas {
   display: block;
   border: 1px solid #bbb2b2;
