@@ -11,6 +11,7 @@ import { DrawingPage } from '../pages/drawing/drawing';
 import { SinglePage } from '../pages/single/single';
 import { CustomizePage } from '../pages/customize/customize'
 import { OverviewPage } from '../pages/overview/overview';
+import { SplashPage } from '../pages/splash/splash';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -29,7 +30,8 @@ import { IonicStorageModule } from '@ionic/storage';
     DrawingPage,
     SinglePage,
     CustomizePage,
-    OverviewPage
+    OverviewPage,
+    SplashPage
   ],
   imports: [
     BrowserModule,
@@ -46,7 +48,8 @@ import { IonicStorageModule } from '@ionic/storage';
     DrawingPage,
     CustomizePage,
     SinglePage,
-    OverviewPage
+    OverviewPage,
+    SplashPage
   ],
   providers: [
     StatusBar,

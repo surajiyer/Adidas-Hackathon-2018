@@ -14,29 +14,23 @@ const STORAGE_KEY = 'IMAGE_LIST';
 	providers: [[Camera, ImagePicker]]
 })
 
-
-
 export class CustomizePage {
-	takenPictureOptions: any;
-	public imagesFromGallery: string[] = [];
 
 	item: { id: number, title: string, price: number, discounted: number, image: string };
 
+	public imagesFromGallery: string[] = [];
+	public takenPicture: string;
+
 	// Canvas stuff
 	@ViewChild('imageCanvas') canvas: any;
+	takenPictureOptions: any;
 	canvasElement: any;
-
 	saveX: number;
 	saveY: number;
 	chosenImage: string = 'assets/imgs/shoe.png';
-
 	storedImages = [];
-
-	public takenPicture: string;
-
 	allPositionsX: number[] = [];
 	allPositionsY: number[] = [];
-
 	img;
 
 	// Make Canvas sticky at the top stuff
@@ -58,11 +52,8 @@ export class CustomizePage {
 
 		this.img = document.getElementById("preloader");
 
-		console.log(this.img);
-		console.log('im here');
 		ctx.drawImage(this.img, 0, 0, width, height);
 		document.getElementById("preloader").outerHTML = "";
-
 	}
 
 	ionViewDidEnter() {
@@ -123,6 +114,11 @@ export class CustomizePage {
 
 		var dataUrl = this.canvasElement.toDataURL();
 		var data = dataUrl.split(',')[1];
+
+		var inputImage = this.getInputImage();
+		console.log('input_image:');
+		console.log(inputImage);
+
 
 
 		// let name = new Date().getTime() + '.png';
@@ -197,8 +193,11 @@ export class CustomizePage {
 	}
 
 	public takePicture() {
+		//reset picture
+		this.resetImages();
+
 		this.takenPictureOptions = {
-			quality: 100,
+			quality: 40,
 			sourceType: this.camera.PictureSourceType.CAMERA,
 			saveToPhotoAlbum: true,
 			correctOrientation: true,
@@ -214,8 +213,28 @@ export class CustomizePage {
 			})
 	}
 
+	//Truncate images so we can laod new ones
+	resetImages() {
+		this.takenPicture = '';
+		this.imagesFromGallery = [];
+	}
+
+	//Choses between image from camera or image from gallery (XOR)
+	getInputImage() {
+		if (this.takenPicture != '') {
+			return this.takenPicture;
+		}
+		else {
+			//For now we only support 1 image form gallelry
+			return this.imagesFromGallery[0];
+		}
+
+	}
+
 	public getImagesFromGallery() {
-		this.imagePicker.getPictures({}).then((results) => {
+		//reset pictures
+		this.resetImages();
+		this.imagePicker.getPictures({ quality: 40 }).then((results) => {
 			for (var i = 0; i < results.length; i++) {
 				this.imagesFromGallery.push(results[i]);
 			}

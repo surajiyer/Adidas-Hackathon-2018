@@ -10,6 +10,7 @@ import { InputSelectorPage } from '../pages/inputselector/inputselector';
 import { DrawingPage } from '../pages/drawing/drawing';
 import { SinglePage } from '../pages/single/single';
 import { OverviewPage } from '../pages/overview/overview';
+import { SplashPage } from '../pages/splash/splash';
 
 
 @Component({
@@ -18,7 +19,7 @@ import { OverviewPage } from '../pages/overview/overview';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
-  rootPage: any = OverviewPage;
+  rootPage: any = SplashPage;
 
   pages: Array<{ title: string, component: any }>;
 
