@@ -1,0 +1,151 @@
+page-home {
+
+}
+
+@font-face {
+  font-family: 'adidas';
+  src: url(../assets/fonts/adidas.ttf);
+  font-weight: 200
+}
+
+// .content-ios {
+//     color: #000;
+//     background-color: crimson !important;
+//     color: white;
+// }
+
+// .content-android {
+//     color: #000;
+//     // background-color: crimson !important;
+//     color: white;
+// }
+
+// h3
+// {
+
+// }
+
+// .preview
+// {
+// 	width: 100%;
+// 	margin-top: 15px;
+// }
+
+// .toolbar-background {
+//     background: #e41e46;
+//     color: white; 
+//     font-family: 'adidas';
+// }
+
+// .toolbar-title {
+//     color: white; 
+//     font-family: 'adidas';
+// }
+
+
+// .header_title {
+//     font-family: 'adidas';
+//     font-size: 30px;
+//     color: white !important;
+// }
+
+//   // .content-md {
+//   //   background-color: #fff !important;
+//   // }
+
+// .logo
+// {
+// 	width: 100%;
+// 	z-index: 1;
+// 	display: none;
+// }
+
+
+h3
+{
+
+}
+
+.preview
+{
+	width: 100%;
+	margin-top: 15px;
+}
+
+.toolbar-background {
+    background: #dd4a66;
+    color: crimson; 
+    font-family: 'adidas';
+}
+
+.toolbar-title {
+    color: white; 
+    font-family: 'adidas';
+}
+
+
+.header_title {
+    font-family: 'adidas';
+    font-size: 30px;
+    color: crimson !important;
+}
+
+  // .content-md {
+  //   background-color: #fff !important;
+  // }
+
+.logo
+{
+	width: 100%;
+	z-index: 1;
+	display: none;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container {
+    text-align: center;
+}
+
+.image-container img {
+    max-width: 90%;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+}
+
+.item {
+    padding-bottom: 40px;
+}
+
+.info {
+    font-family: Adidas, Sans-serif;
+    padding-top: 15px;
+    color: #fff;
+    max-width: 90%;
+    margin: 0 auto;
+}
+
+.info .name {
+    font-size: 27px;
+    line-height: 100%;
+    float: left;
+    text-transform: uppercase;
+    width: 70%;
+}
+
+.info .price {
+    font-size: 21px;
+    float: right;
+    text-align: right;
+    line-height: 100%;
+}
+
+.info .price .discount {
+    font-size: 18px;
+    text-decoration: line-through;
+    color: red;
+    text-shadow: 1px 1px 0 #860c28;
+}

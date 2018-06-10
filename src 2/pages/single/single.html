@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="item">
+    <div class="image-container">
+      <a href="#" class="customize" (click)="goCustomize($event)"><ion-icon name="color-wand"></ion-icon> customize</a>
+      <img src="{{ item.image }}" alt="" />
+    </div>
+    <div class="info">
+      <span class="name">{{ item.title }}</span>
+      <span class="price">
+        {{ item.discounted | currency }}<br />
+        <span class="discount">{{ item.price | currency }}</span>
+      </span>
+    </div>
+    <div style="clear: both"></div>
+    <div class="desc">
+      <a href="#" class="add-to-cart">add to cart</a>
+      These running shoes combine comfort and high-performance technology to deliver a best-ever-run feeling. They have a foot-hugging knit upper that's made with moisture-wicking yarn spun from recycled plastic. A supportive knit cage at the midfoot provides a locked-down fit.  Runner type Neutral shoes for the ultimate running experience
+    </div>
+  </div>
+</ion-content>

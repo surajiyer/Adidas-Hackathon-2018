@@ -59,12 +59,12 @@ export class CustomizePage {
 	ionViewDidEnter() {
 		// https://github.com/ionic-team/ionic/issues/9071#issuecomment-362920591
 		// Get the height of the fixed item
-		let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
-		let scroll = this.content.getScrollElement();
+		// let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
+		// let scroll = this.content.getScrollElement();
 
-		// Add preexisting scroll margin to fixed container size
-		itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
-		scroll.style.marginTop = itemHeight + 'px';
+		// // Add preexisting scroll margin to fixed container size
+		// itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
+		// scroll.style.marginTop = itemHeight + 'px';
 	}
 
 	ionViewDidLoad() {

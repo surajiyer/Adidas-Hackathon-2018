@@ -605,11 +605,11 @@ var CustomizePage = /** @class */ (function () {
     CustomizePage.prototype.ionViewDidEnter = function () {
         // https://github.com/ionic-team/ionic/issues/9071#issuecomment-362920591
         // Get the height of the fixed item
-        var itemHeight = this.fixedContainer.nativeElement.offsetHeight;
-        var scroll = this.content.getScrollElement();
-        // Add preexisting scroll margin to fixed container size
-        itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
-        scroll.style.marginTop = itemHeight + 'px';
+        // let itemHeight = this.fixedContainer.nativeElement.offsetHeight;
+        // let scroll = this.content.getScrollElement();
+        // // Add preexisting scroll margin to fixed container size
+        // itemHeight = Number.parseFloat(scroll.style.marginTop.replace("px", "")) + itemHeight;
+        // scroll.style.marginTop = itemHeight + 'px';
     };
     CustomizePage.prototype.ionViewDidLoad = function () {
         // Set the Canvas Element and its size
