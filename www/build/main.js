@@ -280,6 +280,8 @@ var DrawingPage = /** @class */ (function () {
         this.base64 = base64;
         this.chosenImage = 'assets/imgs/shoe.png';
         this.storedImages = [];
+        this.allPositionsX = [];
+        this.allPositionsY = [];
         // Color Stuff
         this.selectedColor = '#9e2956';
         this.colors = ['#9e2956'];
@@ -292,24 +294,14 @@ var DrawingPage = /** @class */ (function () {
         // 	});
         // });
     }
-    // public loadFileAsBase64() {
-    // 	let filePath: string = '/assets/imgs/shoe.png';
-    // 	console.log(filePath);
-    // 	console.log('test');
-    // 	this.base64.encodeFile(filePath).then((base64File: string) => {
-    // 		console.log(base64File);
-    // 	}, (err) => {
-    // 		console.log(err);
-    // 	});
-    // }
-    DrawingPage.prototype.plotImage = function () {
+    DrawingPage.prototype.plotImage = function (dimension) {
         var ctx = this.canvasElement.getContext('2d');
         var myImage = new Image();
         // myImage.src = imgData;
         // ctx.drawImage(myImage, 0, 0);
         var img = document.getElementById("preloader");
         console.log('im here');
-        ctx.drawImage(img, 0, 0, 400, 400);
+        ctx.drawImage(img, 0, 0, dimension, dimension);
         document.getElementById("preloader").outerHTML = "";
         // ctx.drawImage(img, 0, 0, img.clientWidth, img.clientHeight,     // source rectangle
         // 	0, 0, this.canvasElement.width, this.canvasElement.height); // destination rectangle
@@ -330,7 +322,7 @@ var DrawingPage = /** @class */ (function () {
         this.canvasElement.width = this.plt.width() + '';
         this.canvasElement.height = 400;
         // this.loadFileAsBase64();
-        this.plotImage();
+        this.plotImage(400);
     };
     DrawingPage.prototype.selectColor = function (color) {
         this.selectedColor = color;
@@ -355,6 +347,8 @@ var DrawingPage = /** @class */ (function () {
         ctx.stroke();
         this.saveX = currentX;
         this.saveY = currentY;
+        this.allPositionsX.push(currentX);
+        this.allPositionsY.push(currentY);
     };
     DrawingPage.prototype.saveCanvasImage = function () {
         var _this = this;
@@ -366,6 +360,8 @@ var DrawingPage = /** @class */ (function () {
         var options = { replace: true };
         var data = dataUrl.split(',')[1];
         console.log(data);
+        console.log(this.allPositionsX);
+        this.plotImage(1200);
         var blob = this.b64toBlob(data, 'image/png');
         this.file.writeFile(path, name, blob, options).then(function (res) {
             _this.storeImage(name);

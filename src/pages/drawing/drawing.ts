@@ -23,6 +23,10 @@ export class DrawingPage {
 
 	storedImages = [];
 
+	allPositionsX: number[] = [];
+	allPositionsY: number[] = [];
+
+
 	// Make Canvas sticky at the top stuff
 	@ViewChild(Content) content: Content;
 	@ViewChild('fixedContainer') fixedContainer: any;
@@ -43,23 +47,7 @@ export class DrawingPage {
 		// });
 	}
 
-	// public loadFileAsBase64() {
-	// 	let filePath: string = '/assets/imgs/shoe.png';
-
-
-
-	// 	console.log(filePath);
-	// 	console.log('test');
-	// 	this.base64.encodeFile(filePath).then((base64File: string) => {
-	// 		console.log(base64File);
-	// 	}, (err) => {
-	// 		console.log(err);
-	// 	});
-	// }
-
-
-
-	public plotImage() {
+	public plotImage(dimension) {
 		let ctx = this.canvasElement.getContext('2d');
 		var myImage = new Image();
 		// myImage.src = imgData;
@@ -67,7 +55,7 @@ export class DrawingPage {
 
 		var img = document.getElementById("preloader");
 		console.log('im here');
-		ctx.drawImage(img, 0, 0, 400, 400);
+		ctx.drawImage(img, 0, 0, dimension, dimension);
 		document.getElementById("preloader").outerHTML = "";
 
 		// ctx.drawImage(img, 0, 0, img.clientWidth, img.clientHeight,     // source rectangle
@@ -92,7 +80,7 @@ export class DrawingPage {
 		this.canvasElement.width = this.plt.width() + '';
 		this.canvasElement.height = 400;
 		// this.loadFileAsBase64();
-		this.plotImage();
+		this.plotImage(400);
 	}
 
 	selectColor(color) {
@@ -126,6 +114,10 @@ export class DrawingPage {
 
 		this.saveX = currentX;
 		this.saveY = currentY;
+
+		this.allPositionsX.push(currentX);
+		this.allPositionsY.push(currentY);
+
 	}
 
 	saveCanvasImage() {
@@ -141,6 +133,9 @@ export class DrawingPage {
 		var data = dataUrl.split(',')[1];
 
 		console.log(data);
+		console.log(this.allPositionsX);
+
+		this.plotImage(1200);
 
 		let blob = this.b64toBlob(data, 'image/png');
 
