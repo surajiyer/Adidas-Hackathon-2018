@@ -11,5 +11,6 @@
  <button ion-button (click)="getPictures()">Get Pictures from gallery</button>
  <div *ngFor="let imgInstance of base64Img">
  	<img src="{{imgInstance}}"/>
+ 	{{imgInstance}}
  </div>
 </ion-content>

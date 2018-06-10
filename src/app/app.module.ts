@@ -7,9 +7,14 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { InputSelectorPage } from '../pages/inputselector/inputselector';
+import { DrawingPage } from '../pages/drawing/drawing';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Base64 } from '@ionic-native/base64';
+
+import { File } from '@ionic-native/file';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     GalleryPage,
-    InputSelectorPage
+    InputSelectorPage,
+    DrawingPage
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,11 +36,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     ListPage,
     GalleryPage,
-    InputSelectorPage
+    InputSelectorPage,
+    DrawingPage,
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    File,
+    Base64,
     { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })

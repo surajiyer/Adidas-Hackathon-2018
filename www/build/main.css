@@ -25740,3 +25740,17 @@ h3 {
   -webkit-transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
   transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+page-home canvas {
+  display: block;
+  border: 1px solid #bbb2b2;
+}
+
+page-home .color-block {
+  height: 40px;
+}
+
+page-home #preloader {
+  opacity: 0;
+  display: none;
+}

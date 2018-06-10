@@ -7,6 +7,9 @@ import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { GalleryPage } from '../pages/gallery/gallery';
 import { InputSelectorPage } from '../pages/inputselector/inputselector';
+import { DrawingPage } from '../pages/drawing/drawing';
+
+
 
 @Component({
   templateUrl: 'app.html'
@@ -26,9 +29,9 @@ export class MyApp {
       { title: 'Home', component: HomePage },
       { title: 'List', component: ListPage },
       { title: 'Gallery', component: GalleryPage },
-      { title: 'InputSelector', component: InputSelectorPage }
+      { title: 'InputSelector', component: InputSelectorPage },
+      { title: 'Drawing', component: DrawingPage }
     ];
-
   }
 
   initializeApp() {
