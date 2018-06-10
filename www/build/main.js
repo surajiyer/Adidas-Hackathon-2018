@@ -34,7 +34,7 @@ var SinglePage = /** @class */ (function () {
     };
     SinglePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/single/single.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="item">\n    <div class="image-container">\n      <a href="#" class="customize" (click)="goCustomize($event)"><ion-icon name="color-wand"></ion-icon> customize</a>\n      <img src="{{ item.image }}" alt="" />\n    </div>\n    <div class="info">\n      <span class="name">{{ item.title }}</span>\n      <span class="price">\n        {{ item.discounted | currency }}<br />\n        <span class="discount">{{ item.price | currency }}</span>\n      </span>\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/single/single.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/single/single.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n  <div class="item">\n    <div class="image-container">\n      <a href="#" class="customize" (click)="goCustomize($event)"><ion-icon name="color-wand"></ion-icon> customize</a>\n      <img src="{{ item.image }}" alt="" />\n    </div>\n    <div class="info">\n      <span class="name">{{ item.title }}</span>\n      <span class="price">\n        {{ item.discounted | currency }}<br />\n        <span class="discount">{{ item.price | currency }}</span>\n      </span>\n    </div>\n    <div style="clear: both"></div>\n    <div class="desc">\n      <a href="#" class="add-to-cart">add to cart</a>\n      These running shoes combine comfort and high-performance technology to deliver a best-ever-run feeling. They have a foot-hugging knit upper that\'s made with moisture-wicking yarn spun from recycled plastic. A supportive knit cage at the midfoot provides a locked-down fit.  Runner type Neutral shoes for the ultimate running experience\n    </div>\n  </div>\n</ion-content>'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/single/single.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
     ], SinglePage);
@@ -654,6 +654,16 @@ var CustomizePage = /** @class */ (function () {
             type: "POST",
             success: function (data) {
                 alert(data);
+                console.log('response from server:');
+                console.log(data);
+                // let canvass = document.getElementById("imageCanvas");
+                // var ctx = canvass.getContext("2d");
+                var ctx = this.canvasElement.getContext('2d');
+                var image = new Image();
+                image.onload = function () {
+                    ctx.drawImage(image, 0, 0, 300, 400);
+                };
+                image.src = "data:image/png;base64," + data;
             }
         });
     };
@@ -661,12 +671,12 @@ var CustomizePage = /** @class */ (function () {
         //Base64 of piece of clothing
         var dataUrl = this.canvasElement.toDataURL();
         var data = dataUrl.split(',')[1];
-        console.log('input_object:');
-        console.log(data);
+        // console.log('input_object:');
+        // console.log(data);
         var parent = this;
         if (this.takenPicture != '') {
             this.toDataURL(this.takenPicture, function (dataUrl) {
-                console.log('RESULT:', dataUrl);
+                // console.log('RESULT:', dataUrl);
                 var data_user = dataUrl.split(',')[1];
                 data = { input_user: data_user, input_object: data };
                 console.log(data);
@@ -676,7 +686,7 @@ var CustomizePage = /** @class */ (function () {
         else {
             //For now we only support 1 image form gallelry
             this.toDataURL(this.imagesFromGallery[0], function (dataUrl) {
-                console.log('RESULT:', dataUrl);
+                // console.log('RESULT:', dataUrl);
                 var data_user = dataUrl.split(',')[1];
                 data = { input_user: data_user, input_object: data };
                 console.log(data);
@@ -744,10 +754,12 @@ var CustomizePage = /** @class */ (function () {
         //reset picture
         this.resetImages();
         this.takenPictureOptions = {
-            quality: 40,
+            quality: 20,
             sourceType: this.camera.PictureSourceType.CAMERA,
             saveToPhotoAlbum: true,
             correctOrientation: true,
+            targetWidth: 10,
+            targetHeight: 10,
             destinationType: this.camera.DestinationType.DATA_URL,
             mediaType: this.camera.MediaType.VIDEO
         };
@@ -780,14 +792,14 @@ var CustomizePage = /** @class */ (function () {
         var result = "";
         if (this.takenPicture != '') {
             this.toDataURL(this.takenPicture, function (dataUrl) {
-                console.log('RESULT:', dataUrl);
+                // console.log('RESULT:', dataUrl);
                 result = dataUrl;
             });
         }
         else {
             //For now we only support 1 image form gallelry
             this.toDataURL(this.imagesFromGallery[0], function (dataUrl) {
-                console.log('RESULT:', dataUrl);
+                // console.log('RESULT:', dataUrl);
                 result = dataUrl;
             });
         }
@@ -797,7 +809,7 @@ var CustomizePage = /** @class */ (function () {
         var _this = this;
         //reset pictures
         this.resetImages();
-        this.imagePicker.getPictures({ quality: 40 }).then(function (results) {
+        this.imagePicker.getPictures({ quality: 20 }).then(function (results) {
             for (var i = 0; i < results.length; i++) {
                 _this.imagesFromGallery.push(results[i]);
             }
@@ -819,7 +831,7 @@ var CustomizePage = /** @class */ (function () {
     ], CustomizePage.prototype, "fixedContainer", void 0);
     CustomizePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-customize',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/customize/customize.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content overflow-scroll="true">\n  <img [src]="item.image" *ngIf="item.image" id="preloader" />\n  <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)" width="1200" height="900"></canvas>\n  <img [src]="takenPicture" *ngIf="takenPicture" id="takenPicture" />\n <div *ngFor="let imgInstance of imagesFromGallery">\n  <img src="{{imgInstance}}" id="imageFromGallery"/>\n  {{imgInstance}}\n </div>\n  <button ion-button full (click)="takePicture()">Make photo</button>\n  <button ion-button full (click)="getImagesFromGallery()">Choose from gallery</button>\n  <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">\n    Trash\n  </button>\n  <button ion-button full (click)="saveCanvasImage()">Save Image</button>\n\n\n<div class="row">\n  <div class="column"><div class="dot left">Test</div></div>\n  <div class="column"><div class="dot right" left>Test</div></div>\n</div>\n<div class="row">\n  <div class="column"><div class="dot left">Test</div></div>\n  <div class="column"><div class="dot right">Test</div></div>\n</div>\n  \n\n</ion-content>\n'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/customize/customize.html"*/,
+            selector: 'page-customize',template:/*ion-inline-start:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/customize/customize.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content overflow-scroll="true">\n  <img [src]="item.image" *ngIf="item.image" id="preloader" />\n  <div class="canvas">\n    <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)" width="1200" height="900"></canvas>\n  </div>\n  <img [src]="takenPicture" *ngIf="takenPicture" id="takenPicture" />\n <div *ngFor="let imgInstance of imagesFromGallery">\n  <img src="{{imgInstance}}" id="takenPicture"/>\n  {{imgInstance}}\n </div>\n  <div class="buttons-btns">\n    <button ion-button full (click)="takePicture()"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>\n    <button ion-button full (click)="getImagesFromGallery()"><ion-icon ios="ios-filing" md="md-filing"></ion-icon></button>\n    <button ion-button full (click)="saveCanvasImage()"><ion-icon ios="ios-bulb" md="md-bulb"></ion-icon></button>\n    <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">\n      <ion-icon ios="ios-trash" md="md-trash"></ion-icon>\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/jeroenbrouns/Desktop/hackaton/ionic_workspace/AdidasHackaton/src/pages/customize/customize.html"*/,
             providers: [[__WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_image_picker__["a" /* ImagePicker */]]]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_file__["a" /* File */], __WEBPACK_IMPORTED_MODULE_3__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["V" /* Renderer */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_base64__["a" /* Base64 */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_image_picker__["a" /* ImagePicker */]])

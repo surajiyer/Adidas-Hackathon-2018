@@ -1,40 +1,5 @@
 page-home {
 
-
-}
-
-
-.column {
-  text-align: center;
-}
-.dot {
-  background-color: red; /* for visualization purposes */
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.dot.right {
-    margin-right: 20px;
-}
-
-.dot.left {
-    margin-left: 20px;
-}
-
-.row {
-    display: flex;
-}
-
-.column {
-    flex: 50%;
-}
-
-.dot {
-  height: 100px;
-  width: 100px;
-  background-color: #FFFFFF;
-  border-radius: 50%;
-  display: inline-block;
 }
 
 @font-face {
@@ -45,11 +10,9 @@ page-home {
 
 .preview
 {
-	width: 100%;
-	margin-top: 15px;
+    width: 100%;
+    margin-top: 15px;
 }
-
-
 
 .toolbar-background {
     background: #dd4a66;
@@ -71,9 +34,9 @@ page-home {
 
 .logo
 {
-	width: 100%;
-	z-index: 1;
-	display: none;
+    width: 100%;
+    z-index: 1;
+    display: none;
 }
 
 .image-container {
@@ -152,14 +115,54 @@ page-home {
     height: 300px;
 }
 
-canvas
-{
-    width: 400px;
-    height: 300px;
-}
-
 #takenPicture
 {
-    width: 400px;
-    height: 300px;   
+    height: 300px;  
+    margin-top: 10px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    height: auto;
+    width: 96%; 
+}
+
+.canvas {
+    text-align: center;
+}
+
+.canvas canvas {
+    margin-top: 10px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    height: auto;
+    width: 96%;
+}
+
+.buttons-btns {
+    text-align: center;
+    position: relative;
+    top: -20px;
+}
+
+.buttons-btns .button-full-md {
+    width: 22%;
+    height: 70px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    font-size: 24px;
+    display: inline-block;
+    background-color: #f53461;
+}
+
+.button-full-md {
+    width: 22%;
+    height: 70px;
+    border-radius: 10px;
+    font-size: 24px;
+    display: inline-block;
+    position: relative;
+    margin: 0 -10px;
+    border: 3px solid #e8315a;
 }

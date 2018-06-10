@@ -120,6 +120,17 @@ export class CustomizePage {
 			type: "POST",
 			success: function(data) {
 				alert(data);
+				console.log('response from server:');
+				console.log(data);
+				// let canvass = document.getElementById("imageCanvas");
+				// var ctx = canvass.getContext("2d");
+				let ctx = this.canvasElement.getContext('2d');
+
+				var image = new Image();
+				image.onload = function() {
+					ctx.drawImage(image, 0, 0, 300, 400);
+				};
+				image.src = "data:image/png;base64," + data;
 			}
 		});
 	}
@@ -129,14 +140,14 @@ export class CustomizePage {
 		//Base64 of piece of clothing
 		var dataUrl = this.canvasElement.toDataURL();
 		var data = dataUrl.split(',')[1];
-		console.log('input_object:');
-		console.log(data);
+		// console.log('input_object:');
+		// console.log(data);
 
 		var parent = this;
 
 		if (this.takenPicture != '') {
 			this.toDataURL(this.takenPicture, function(dataUrl) {
-				console.log('RESULT:', dataUrl);
+				// console.log('RESULT:', dataUrl);
 
 				var data_user = dataUrl.split(',')[1];
 				data = { input_user: data_user, input_object: data };
@@ -147,7 +158,7 @@ export class CustomizePage {
 		else {
 			//For now we only support 1 image form gallelry
 			this.toDataURL(this.imagesFromGallery[0], function(dataUrl) {
-				console.log('RESULT:', dataUrl);
+				// console.log('RESULT:', dataUrl);
 
 				var data_user = dataUrl.split(',')[1];
 				data = { input_user: data_user, input_object: data };
@@ -238,10 +249,12 @@ export class CustomizePage {
 		this.resetImages();
 
 		this.takenPictureOptions = {
-			quality: 40,
+			quality: 20,
 			sourceType: this.camera.PictureSourceType.CAMERA,
 			saveToPhotoAlbum: true,
 			correctOrientation: true,
+			targetWidth: 10,
+			targetHeight: 10,
 			destinationType: this.camera.DestinationType.DATA_URL,
 			mediaType: this.camera.MediaType.VIDEO
 		}
@@ -280,14 +293,14 @@ export class CustomizePage {
 
 		if (this.takenPicture != '') {
 			this.toDataURL(this.takenPicture, function(dataUrl) {
-				console.log('RESULT:', dataUrl);
+				// console.log('RESULT:', dataUrl);
 				result = dataUrl;
 			})
 		}
 		else {
 			//For now we only support 1 image form gallelry
 			this.toDataURL(this.imagesFromGallery[0], function(dataUrl) {
-				console.log('RESULT:', dataUrl);
+				// console.log('RESULT:', dataUrl);
 				result = dataUrl;
 			})
 		}
@@ -297,7 +310,7 @@ export class CustomizePage {
 	public getImagesFromGallery() {
 		//reset pictures
 		this.resetImages();
-		this.imagePicker.getPictures({ quality: 40 }).then((results) => {
+		this.imagePicker.getPictures({ quality: 20 }).then((results) => {
 			for (var i = 0; i < results.length; i++) {
 				this.imagesFromGallery.push(results[i]);
 			}

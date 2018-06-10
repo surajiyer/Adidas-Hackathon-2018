@@ -10,8 +10,8 @@ page-home {
 
 .preview
 {
-	width: 100%;
-	margin-top: 15px;
+    width: 100%;
+    margin-top: 15px;
 }
 
 .toolbar-background {
@@ -34,9 +34,9 @@ page-home {
 
 .logo
 {
-	width: 100%;
-	z-index: 1;
-	display: none;
+    width: 100%;
+    z-index: 1;
+    display: none;
 }
 
 .image-container {
@@ -93,13 +93,40 @@ page-home {
     top: 14px;
     right: 5%;
     margin-right: 13px;
-    background: rgba(0, 0, 0, 0.05);
+    background: rgba(256, 256, 256, 0.7);
     padding: 10px 15px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
     border-radius: 10px;
     text-decoration: none;
     letter-spacing: 1px;
     border: 2px solid #fff;
+    -webkit-box-shadow: 0 0 0 1px #bfbfbf;
     box-shadow: 0 0 0 1px #bfbfbf;
+    color: #000;
+}
+
+.item .desc {
+    color: #fff;
+    text-align: justify;
+    max-width: 90%;
+    margin-left: 5%;
+    margin-top: 20px;
+    font-family: Adidas, sans-serif;
+    padding-bottom: 20px;
+}
+
+.item .add-to-cart {
+    font-family: Adidas, Sans-serif;
+    position: absolute;
+    bottom: 3px;
+    right: 0;
+    margin-right: 13px;
+    background: #f53461;
+    padding: 10px 15px;
+    border-radius: 10px;
+    text-decoration: none;
+    letter-spacing: 1px;
+    /* border: 2px solid #ce1742; */
+    -webkit-box-shadow: 0 0 0 1px #bfbfbf;
+    box-shadow: 0 3px 3px 1px #e01c1c;
+    color: #fff;
 }
