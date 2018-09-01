@@ -4,5 +4,5 @@ This project was developed as part of the team 'Datadidas' in under 38 hours. We
 - Developed an independent hybrid mobile application to demo the work. The app is designed with Ionic framework and communicates with our Flask-based prediction API. You select an adidas product, click customize, take a picture from your phone of any styles and watch the magic happen.
 
 For further deails of our team and / or the approach:
-- [Team's One Pager]([)docs/Team Datadidas.pdf)
+- [Team's One Pager](docs/Team Datadidas.pdf)
 - [Project details](docs/Ai.rty.pdf)
