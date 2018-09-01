@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><img src="assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="item" *ngFor="let item of items" (click)="goToItem($event, item)">
+    <div class="image-container">
+      <img src="{{ item.image }}" alt="" />
+    </div>
+    <div class="info">
+      <span class="name">{{ item.title }}</span>
+      <span class="price">
+        {{ item.discounted | currency }}<br />
+        <span class="discount">{{ item.price | currency }}</span>
+      </span>
+    </div>
+  </div>
+</ion-content>

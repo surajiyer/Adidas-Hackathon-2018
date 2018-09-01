@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Home</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding no-bounce>
+  <img [src]="chosenImage" *ngIf="chosenImage" id="preloader" />
+  <div #fixedContainer ion-fixed>
+    <ion-row>
+      <ion-col *ngFor="let color of colors" [style.background]="color" class="color-block" tappable (click)="selectColor(color)"></ion-col>
+    </ion-row>
+    <ion-row radio-group [(ngModel)]="selectedColor">
+      <ion-col *ngFor="let color of colors" text-center>
+        <ion-radio [value]="color"></ion-radio>
+      </ion-col>
+    </ion-row>
+    <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)"></canvas>
+    <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">
+      Trash
+    </button>
+    <button ion-button full (click)="saveCanvasImage()">Save Image</button>
+  </div>
+</ion-content>

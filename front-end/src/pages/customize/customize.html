@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title><img src="/assets/imgs/logo-adidas.png" height="20px" alt="" /></ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content overflow-scroll="true">
+  <img [src]="item.image" *ngIf="item.image" id="preloader" />
+  <div class="canvas">
+    <canvas #imageCanvas (touchstart)="startDrawing($event)" (touchmove)="moved($event)" width="1200" height="900"></canvas>
+  </div>
+  <img [src]="takenPicture" *ngIf="takenPicture" id="takenPicture" />
+ <div *ngFor="let imgInstance of imagesFromGallery">
+  <img src="{{imgInstance}}" id="takenPicture"/>
+  {{imgInstance}}
+ </div>
+  <div class="buttons-btns">
+    <button ion-button full (click)="takePicture()"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+    <button ion-button full (click)="getImagesFromGallery()"><ion-icon ios="ios-filing" md="md-filing"></ion-icon></button>
+    <button ion-button full (click)="saveCanvasImage()"><ion-icon ios="ios-bulb" md="md-bulb"></ion-icon></button>
+    <button ion-button full icon-only color="danger" (click)="removeImageAtIndex(i)">
+      <ion-icon ios="ios-trash" md="md-trash"></ion-icon>
+    </button>
+  </div>
+</ion-content>
